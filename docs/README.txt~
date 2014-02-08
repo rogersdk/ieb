@@ -14,10 +14,10 @@ Repositório github
 ==================
 Estrutura de diretórios ideal: path-to-localhost/ieb/admin/files-from-git-clone
 
-Link do projeto
 https://github.com/rogersdk/ieb/
 
-Comando básico de checkout
+
+
 git clone https://github.com/rogersdk/ieb.git . (da o checkout da aplicação, no diretório atual)
 
 
