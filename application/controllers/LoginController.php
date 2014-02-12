@@ -1,7 +1,5 @@
 <?php
-
-class LoginController extends Zend_Controller_Action
-{
+class LoginController extends Zend_Controller_Action{
 
     public function init(){
         /* Initialize action controller here */
@@ -10,6 +8,10 @@ class LoginController extends Zend_Controller_Action
     public function indexAction(){
         // action body
     }
-
-
+    
+    public function listarAction(){
+		// action body
+	}
+    
+    
 }
