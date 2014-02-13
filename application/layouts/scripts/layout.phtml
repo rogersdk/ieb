@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
@@ -49,6 +49,9 @@
 					class="glyphicon glyphicon-home"></span> Sistema Administrativo </a>
 			</div>
 			<div class="navbar-collapse collapse">
+				<?php echo $this->navigation(); ?>
+			
+			<!-- 
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="<?php echo $this->baseUrl();?>">Início</a>
 					</li>
@@ -71,6 +74,7 @@
 					<li class="active"><a href="./">Static top</a></li>
 					<li><a href="../navbar-fixed-top/">Fixed top</a></li>
 				</ul>
+				-->
 			</div>
 			<!--/.nav-collapse -->
 		</div>
@@ -79,6 +83,15 @@
 	<div class="container">
 	<?php echo $this->layout()->content; ?>
 	</div>
+	
+	<div id="footer" class="">
+      <div class="container">
+        <p class="text-primary text-center">Todos direitos reservados &copy;.</p>
+        <p class="text-primary text-center">Igreja Evangélica Batista Zona Sul.</p>
+      </div>
+    </div>
+	
+	
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->

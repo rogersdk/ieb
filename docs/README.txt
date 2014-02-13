@@ -22,6 +22,16 @@ git clone https://github.com/rogersdk/ieb.git . (da o checkout da aplicação, n
 
 
 
+Setting up .htaccess
+====================
+RewriteEngine On
+RewriteBase /ieb/admin/
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+
 
 Setting Up Your VHOST
 =====================

@@ -1,0 +1,50 @@
+<h3>
+	Área Administrativa |
+	<?php echo $this->tituloModelo;?>
+</h3>
+
+
+<!-- 
+<div class="bs-callout bs-callout-danger">Nesta área é possível
+	visualizar, verificar, buscar e adicionar novas Classes.</div>
+-->
+
+<div class="col-md-2 sidebar">
+	<ul class="nav nav-sidebar">
+		<li><a href="<?php echo $this->baseUrl();?>/classe">Listar Todos</a>
+		</li>
+		<li><a href="<?php echo $this->baseUrl();?>/classe/adicionar">Adicionar Novo</a>
+		</li>
+		<!-- 
+		<li><a href="#">Relatórios</a>
+		</li>
+		 -->
+	</ul>
+</div>
+
+<div class="col-md-8">
+	<form class="form-horizontal" action="<?php echo $this->baseUrl();?>/classe/editar" method="post" >
+		<input id="id" name="id" type="hidden" value="<?php echo $this->row->id;?>" />
+		<fieldset>
+			<legend>Cadastro</legend>
+			<div class="form-group">
+				<label for="nome" class="control-label col-md-2" >Nome</label>
+				<div class="col-md-8">
+					<input id="nome" class="form-control" name="nome" value="<?php echo $this->row['nome'];?>" placeholder="Nome da Classe" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="descricao" class="control-label col-md-2" >Descrição</label>
+				<div class="col-md-8">
+					<textarea id="descricao" class="form-control" name="descricao"  rows="5" cols="8" placeholder="Descrição da classe..." ><?php echo $this->row->descricao;?></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			    <div class="col-md-2 pull-right">
+			      <button type="submit" class="btn btn-primary">Salvar</button>
+			    </div>
+			  </div>
+		</fieldset>
+	</form>
+</div>

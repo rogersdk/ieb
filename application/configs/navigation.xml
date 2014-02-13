@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation>
+	<index module="default" controller="index" action="index">
+		<label>Início</label>
+		<title>Início da área administrativa</title>
+	</index>
+	<classe module="default" controller="classe" action="index">
+		<label>Classes</label>
+		<title>Controle das Classes</title>
+		
+	</classe>
+	<pessoa module="default" controller="pessoa" action="index">
+		<label>Usuários</label>
+		<title>Controle de Usuários</title>
+	</pessoa>
+	
+	
+	
+	
+</navigation>

@@ -1,13 +1,11 @@
 <?php
-class ClasseController extends Zend_Controller_Action{
-
-
+class PessoaController extends Zend_Controller_Action {
 	public function init(){
-		$this->_modelo = new Application_Model_Classe();
+		$this->_modelo = new Application_Model_Pessoa();
 		/**
 		 * Setting up view variables
 		 **/
-		$this->view->tituloModelo = 'Classe';
+		$this->view->tituloModelo = 'Pessoa';
 		$this->view->controllerName = $this->getRequest()->getControllerName();
 		$this->view->moduleName = $this->getRequest()->getModuleName();
 		$this->view->actionName = $this->getRequest()->getActionName();
@@ -61,8 +59,5 @@ class ClasseController extends Zend_Controller_Action{
 		unset($data['action']);
 		return $data;
 	}
-
-
-
-
+	
 }

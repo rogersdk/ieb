@@ -1,0 +1,108 @@
+<h3>
+	Área Administrativa |
+	<?php echo $this->tituloModelo;?>
+</h3>
+
+
+<!-- 
+<div class="bs-callout bs-callout-danger">Nesta área é possível
+	visualizar, verificar, buscar e adicionar novas Classes.</div>
+-->
+
+<div class="col-md-2 sidebar">
+	<ul class="nav nav-sidebar">
+		<li>
+			<a href="<?php echo $this->url(array('action'=>'index'));?>">Listar Todos</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar Novo</a>
+		</li>
+		<!-- 
+		<li><a href="#">Relatórios</a>
+		</li>
+		 -->
+	</ul>
+</div>
+
+
+
+
+<div class="col-md-8">
+	<form class="form-horizontal" action="<?php echo $this->baseUrl();?>/pessoa/adicionar" method="post" >
+		<fieldset>
+			<legend>Cadastro Dados Pessoais</legend>
+			<div class="form-group">
+				<label for="nome" class="control-label col-md-2" >Nome</label>
+				<div class="col-md-8">
+					<input id="nome" class="form-control" name="nome" type="text" placeholder="Nome da Pessoa" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="cpf" class="control-label col-md-2" >CPF</label>
+				<div class="col-md-3">
+					<input id="cpf" class="form-control" name="cpf" type="text" placeholder="999.999.999-99" />
+				</div>
+				
+				<label for="rg" class="control-label col-md-2" >RG</label>
+				<div class="col-md-3">
+					<input id="rg" class="form-control" name="rg" type="text" placeholder="RG" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="endereco" class="control-label col-md-2" >Endereco</label>
+				<div class="col-md-8">
+					<input id="endereco" class="form-control" name="endereco" type="text" placeholder="Rua Nome da Rua" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="complemento" class="control-label col-md-2" >Complemento</label>
+				<div class="col-md-4">
+					<input id="complemento" class="form-control" name="complemento" type="text" placeholder="Bloco k 99, Apto. 101" />
+				</div>
+
+				<label for="numero" class="control-label col-md-1" >Nº</label>
+				<div class="col-md-2">
+					<input id="numero" class="form-control" name="numero" type="text" placeholder="999" />
+				</div>		
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="cep" class="control-label col-md-2" >CEP</label>
+				<div class="col-md-3">
+					<input id="cep" class="form-control" name="cep" type="text" placeholder="99999-999" />
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="telefoneResidencial" class="control-label col-md-2" >Tel. Residencial</label>
+				<div class="col-md-3">
+					<input id="telefoneResidencial" class="form-control" name="telefoneResidencial" type="text" placeholder="(99) 9999-9999" />
+				</div>
+				
+				<label for="telefoneCelular" class="control-label col-md-2" >Tel. Celular</label>
+				<div class="col-md-3">
+					<input id="telefoneCelular" class="form-control" name="telefoneCelular" type="text" placeholder="(99) 9999-9999" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="email" class="control-label col-md-2" >Email</label>
+				<div class="col-md-5">
+					<input id="email" class="form-control" name="email" type="text" placeholder="exemplo@exemplo.com" />
+				</div>
+			
+			</div>
+			
+			<div class="form-group">
+			    <div class="col-md-2 pull-right">
+			      <button type="submit" class="btn btn-primary">Salvar</button>
+			    </div>
+			  </div>
+		</fieldset>
+	</form>
+</div>
