@@ -1,21 +1,18 @@
+
+
 <h3>
 	Área Administrativa |
 	<?php echo $this->tituloModelo;?>
 </h3>
 
-
-<!-- 
-<div class="bs-callout bs-callout-danger">Nesta área é possível
-	visualizar, verificar, buscar e adicionar novas Classes.</div>
--->
-
 <div class="col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
 		<li>
-			<a href="<?php echo $this->url(array('action'=>'index'));?>">Listar Todos</a>
+			<a href="<?php echo $this->baseUrl('/'.$this->controllerName);?>">Listar Todos</a>
 		</li>
+		
 		<li>
-			<a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar Novo</a>
+			<a href="<?php echo $this->baseUrl('/'.$this->controllerName.'/adicionar');?>">Adicionar Novo</a>
 		</li>
 		<!-- 
 		<li><a href="#">Relatórios</a>
@@ -27,16 +24,15 @@
 <?php echo $this->flashMessages();?>
 
 <div class="col-md-8 table-responsive">
-
 	<?php if(count($this->lista)):?>
 	<table class="table table-bordered table-hover table-striped table-responsive">
 		<caption>Lista</caption>
-				
 		<thead>
 			<tr>
 				<th>Id</th>
 				<th>Nome</th>
-				<th>Professor</th>
+				<th>Cpf</th>
+				<th>Telefones</th>
 				<th>Opções</th>
 			</tr>
 		</thead>
@@ -45,15 +41,17 @@
 			<tr>
 				<td><?php echo $l['id'];?></td>
 				<td><?php echo $l['nome'];?></td>
-				<td><?php echo 'Ciclano';?></td>
+				<td><?php echo $l['cpf'];?></td>
+				<td><?php echo $l['telefoneResidencial'].' / '.$l['telefoneCelular'];?></td>
 				<td class="col-md-1" >
-					<a href="<?php echo $this->baseUrl('/classe/editar/id/'.$l['id']);?>" >
+					<a href="<?php echo $this->baseUrl($this->controllerName.'/editar/id/'.$l['id']);?>" title="Editar" >
 						<span class="glyphicon glyphicon-pencil"></span>
-						
 					</a>
-					<a href="<?php echo $this->baseUrl('/classe/remover/id/'.$l['id']);?>" >
+					<a href="<?php echo $this->baseUrl($this->controllerName.'/matricular/id/'.$l['id']);?>" title="Matricular" >
+						<span class="glyphicon glyphicon-book"></span>
+					</a>
+					<a href="<?php echo $this->baseUrl($this->controllerName.'/remover/id/'.$l['id']);?>" title="Remover" >
 						<span class="glyphicon glyphicon-trash"></span>
-
 					</a>
 				</td>
 			</tr>
@@ -67,5 +65,4 @@
 		<p class="text-warning" >Nenhum dado foi encontrado.</p>
 	<?php endif;?>
 	
-
 </div>

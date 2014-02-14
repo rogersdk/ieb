@@ -12,10 +12,11 @@
 <div class="col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
 		<li>
-			<a href="<?php echo $this->url(array('action'=>'index'));?>">Listar Todos</a>
+			<a href="<?php echo $this->baseUrl('/'.$this->controllerName);?>">Listar Todos</a>
 		</li>
+		
 		<li>
-			<a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar Novo</a>
+			<a href="<?php echo $this->baseUrl('/'.$this->controllerName.'/adicionar');?>">Adicionar Novo</a>
 		</li>
 		<!-- 
 		<li><a href="#">Relatórios</a>

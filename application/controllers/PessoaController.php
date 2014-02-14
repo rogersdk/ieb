@@ -1,7 +1,9 @@
 <?php
 class PessoaController extends Zend_Controller_Action {
+	
 	public function init(){
 		$this->_modelo = new Application_Model_Pessoa();
+		
 		/**
 		 * Setting up view variables
 		 **/
@@ -44,14 +46,12 @@ class PessoaController extends Zend_Controller_Action {
 
 	public function removerAction(){
 		$id = $this->getRequest()->getParam('id');
-		
 		if($id > 0){
-			$this->_modelo->delete(array('id',$id));	
+			$this->_modelo->delete("id = $id");	
 			$this->_helper->flashMessenger->addMessage(array('warning'=>'Removido com Sucesso!'));
 			$this->_helper->_redirector('index');
 		}
 	}
-
 
 	public function filterParamValues($data = array()){
 		unset($data['module']);

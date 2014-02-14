@@ -3,17 +3,13 @@
 	<?php echo $this->tituloModelo;?>
 </h3>
 
-
-<!-- 
-<div class="bs-callout bs-callout-danger">Nesta área é possível
-	visualizar, verificar, buscar e adicionar novas Classes.</div>
--->
-
 <div class="col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
-		<li><a href="<?php echo $this->baseUrl();?>/classe">Listar Todos</a>
+		<li>
+			<a href="<?php echo $this->url(array('action'=>'index'));?>">Listar Todos</a>
 		</li>
-		<li><a href="<?php echo $this->baseUrl();?>/classe/adicionar">Adicionar Novo</a>
+		<li>
+			<a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar Novo</a>
 		</li>
 		<!-- 
 		<li><a href="#">Relatórios</a>
@@ -22,22 +18,79 @@
 	</ul>
 </div>
 
+
+
+
 <div class="col-md-8">
-	<form class="form-horizontal" action="<?php echo $this->baseUrl();?>/classe/editar" method="post" >
-		<input id="id" name="id" type="hidden" value="<?php echo $this->row->id;?>" />
+	<form class="form-horizontal" action="<?php echo $this->baseUrl($this->controllerName.'/editar');?>" method="post" >
+		<input name="id" type="hidden" value="<?php echo $this->row->id?>" />
 		<fieldset>
-			<legend>Cadastro</legend>
+			<legend>Cadastro Dados Pessoais</legend>
 			<div class="form-group">
 				<label for="nome" class="control-label col-md-2" >Nome</label>
 				<div class="col-md-8">
-					<input id="nome" class="form-control" name="nome" value="<?php echo $this->row['nome'];?>" placeholder="Nome da Classe" />
+					<input id="nome" class="form-control" name="nome" type="text" value="<?php echo $this->row->nome;?>" placeholder="Nome da Pessoa" />
 				</div>
 			</div>
+			
 			<div class="form-group">
-				<label for="descricao" class="control-label col-md-2" >Descrição</label>
-				<div class="col-md-8">
-					<textarea id="descricao" class="form-control" name="descricao"  rows="5" cols="8" placeholder="Descrição da classe..." ><?php echo $this->row->descricao;?></textarea>
+				<label for="cpf" class="control-label col-md-2" >CPF</label>
+				<div class="col-md-3">
+					<input id="cpf" class="form-control cpf" name="cpf" type="text" value="<?php echo $this->row->cpf;?>" placeholder="999.999.999-99" />
 				</div>
+				
+				<label for="rg" class="control-label col-md-2" >RG</label>
+				<div class="col-md-3">
+					<input id="rg" class="form-control" name="rg" type="text" value="<?php echo $this->row->rg;?>" placeholder="RG" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="endereco" class="control-label col-md-2" >Endereco</label>
+				<div class="col-md-8">
+					<input id="endereco" class="form-control" name="endereco" type="text" value="<?php echo $this->row->endereco;?>" placeholder="Rua Nome da Rua" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="complemento" class="control-label col-md-2" >Complemento</label>
+				<div class="col-md-4">
+					<input id="complemento" class="form-control" name="complemento" type="text" value="<?php echo $this->row->complemento;?>" placeholder="Bloco k 99, Apto. 101" />
+				</div>
+
+				<label for="numero" class="control-label col-md-1" >Nº</label>
+				<div class="col-md-2">
+					<input id="numero" class="form-control" name="numero" type="text" value="<?php echo $this->row->numero;?>" placeholder="999" />
+				</div>		
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="cep" class="control-label col-md-2" >CEP</label>
+				<div class="col-md-3">
+					<input id="cep" class="form-control cep" name="cep" type="text" value="<?php echo $this->row->cep;?>" placeholder="99999-999" />
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="telefoneResidencial" class="control-label col-md-2" >Tel. Residencial</label>
+				<div class="col-md-3">
+					<input id="telefoneResidencial" class="form-control telefone" name="telefoneResidencial" type="text" value="<?php echo $this->row->telefoneResidencial;?>" placeholder="(99) 9999-9999" />
+				</div>
+				
+				<label for="telefoneCelular" class="control-label col-md-2" >Tel. Celular</label>
+				<div class="col-md-3">
+					<input id="telefoneCelular" class="form-control telefone" name="telefoneCelular" type="text" value="<?php echo $this->row->telefoneCelular;?>" placeholder="(99) 9999-9999" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="email" class="control-label col-md-2" >Email</label>
+				<div class="col-md-5">
+					<input id="email" class="form-control" name="email" type="text" value="<?php echo $this->row->email;?>" placeholder="exemplo@exemplo.com" />
+				</div>
+			
 			</div>
 			
 			<div class="form-group">

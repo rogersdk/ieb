@@ -30,9 +30,23 @@
 			<div class="form-group">
 				<label for="nome" class="control-label col-md-2" >Nome</label>
 				<div class="col-md-8">
-					<input id="nome" class="form-control" name="nome" value="<?php echo $this->row['nome'];?>" placeholder="Nome da Classe" />
+					<input id="nome" class="form-control" name="nome" value="<?php echo $this->row->nome;?>" placeholder="Nome da Classe" />
 				</div>
 			</div>
+			
+			<div class="form-group">
+				<label for="professor" class="control-label col-md-2" >Professor(res)</label>
+				<div class="col-md-8">
+					<select id="professor" class="form-control select" name="professor[]" multiple="multiple" >
+						<option value="0" >Selecione o Professor</option>
+						<?php foreach($this->professores as $p):?>
+						<option value="<?php echo $p['id'];?>" <?php echo array_key_exists($p['id'],$this->professoresAtuais)?'selected="selected"':'';?>   > <?php echo $p['nome'];?> </option>
+						<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+			
+			
 			<div class="form-group">
 				<label for="descricao" class="control-label col-md-2" >Descrição</label>
 				<div class="col-md-8">
