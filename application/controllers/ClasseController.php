@@ -45,7 +45,6 @@ class ClasseController extends Zend_Controller_Action{
 			$this->_helper->flashMessenger->addMessage(array('success'=>'Adicionado com Sucesso!'));
 			$this->_helper->_redirector('index');
 		}else{
-
 			return false;
 		}
 	}
@@ -59,18 +58,21 @@ class ClasseController extends Zend_Controller_Action{
 				$professores = $valoresFiltrados['professor'];
 				unset($valoresFiltrados['professor']);
 
-				$this->_modelo->update($valoresFiltrados,"id = $id");
+				$retornoEditar = $this->_modelo->update($valoresFiltrados,"id = $id");
+
+				$this->_modeloPessoaHasClasse->delete("classeId = $id");
 
 				foreach($professores as $p){
-					$pessoaHasClasseDados = array(
+					if($p > 0){
+						$pessoaHasClasseDados = array(
 						'pessoaId'	=>	$p,
-						'classeID'	=>	$id,
-						'data'		=>	date('Y-m-d')
-					);
-					$this->_modeloPessoaHasClasse->update($pessoaHasClasseDados);
+						'classeId'	=>	$id,
+						'data'		=>	Zend_Date::DATE_FULL
+						);
+							
+						$this->_modeloPessoaHasClasse->insert($pessoaHasClasseDados);
+					}		
 				}
-
-
 
 				$this->_helper->flashMessenger->addMessage(array('info'=>'Atualizado com Sucesso!'));
 				$this->_helper->_redirector('index');

@@ -10,7 +10,7 @@
 		
 	</classe>
 	<pessoa module="default" controller="pessoa" action="index">
-		<label>Usuários</label>
+		<label>Pessoas</label>
 		<title>Controle de Usuários</title>
 	</pessoa>
 	

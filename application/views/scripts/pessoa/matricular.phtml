@@ -1,0 +1,79 @@
+<h3>
+	Área Administrativa |
+	<?php echo $this->tituloModelo;?>
+</h3>
+
+<div class="col-md-2 sidebar">
+	<ul class="nav nav-sidebar">
+		<li><a href="<?php echo $this->url(array('action'=>'index'));?>">Listar
+				Todos</a>
+		</li>
+		<li><a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar
+				Novo</a>
+		</li>
+		<!-- 
+		<li><a href="#">Relatórios</a>
+		</li>
+		 -->
+	</ul>
+</div>
+
+
+
+
+<div class="col-md-8">
+	<form class="form-horizontal"
+		action="<?php echo $this->baseUrl();?>/pessoa/adicionar" method="post">
+		<fieldset>
+			<legend>Matrícula do Aluno</legend>
+			<div class="form-group">
+				<label for="data" class="control-label col-md-3">Data de Matrícula</label>
+				<div class="col-md-4">
+					<input id="data" class="form-control" name="data" type="date"
+						placeholder="dd/mm/yyyy" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="pagamento" class="control-label col-md-3">Pagamento</label>
+
+				<div class="col-md-3">
+					<input id="pagamento" class="form-control double" name="pagamento"
+						value="" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="entrega-material" class="control-label col-md-3">Entrega
+					de Material</label>
+				<div class="col-md-4">
+					<select id="entrega-material" class="form-control"
+						name="entregaMaterial">
+						<option value="false">Não foi Entregue</option>
+						<option value="true">Entregue</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="aprovado" class="control-label col-md-3">Situação da Matrícula</label>
+
+				<div class="col-md-4">
+					<select id="aprovado" class="form-control"
+						name="aprovado">
+						<option value="false">Reprovado</option>
+						<option value="true">Aprovado</option>
+					</select>
+
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-md-2 pull-right">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
