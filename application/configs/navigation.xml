@@ -6,13 +6,16 @@
 	</index>
 	<classe module="default" controller="classe" action="index">
 		<label>Classes</label>
-		<title>Controle das Classes</title>
-		
+		<title>Controle das Classes</title>	
 	</classe>
 	<pessoa module="default" controller="pessoa" action="index">
 		<label>Pessoas</label>
 		<title>Controle de Usuários</title>
 	</pessoa>
+	<matricula module="default" controller="matricula" action="index" >
+		<label>Matrículas</label>
+		<title>Controle de Matrículas</title>
+	</matricula>
 	
 	
 	

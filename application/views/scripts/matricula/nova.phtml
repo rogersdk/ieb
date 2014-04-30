@@ -1,8 +1,16 @@
 <div class="col-md-8">
 	<form class="form-horizontal"
-		action="<?php echo $this->baseUrl();?>/pessoa/adicionar" method="post">
+		action="<?php echo $this->baseUrl();?>/matricula/nova" method="post">
 		<fieldset>
 			<legend>Matrícula do Aluno</legend>
+			<input type="hidden"  name="pessoaId" value="<?php echo $this->aluno->id; ?>"/>
+			<div class="form-group">
+				<label for="aluno" class="control-label col-md-3">Aluno</label>
+				<div class="col-md-4">
+					<input id="aluno" type="text" class="form-control" name="aluno" value="<?php echo $this->aluno->nome; ?>" readonly="true" />
+				</div>
+			</div>
+
 			<div class="form-group">
 				<label for="data" class="control-label col-md-3">Data de Matrícula</label>
 				<div class="col-md-4">
@@ -12,7 +20,19 @@
 			</div>
 
 			<div class="form-group">
-				<label for="pagamento" class="control-label col-md-3">Pagamento</label>
+				<label for="classe" class="control-label col-md-3" >Classe(s)</label>
+				<div class="col-md-6">
+					<select id="classe" class="form-control select" name="classeId">
+						<option value="0" >Selecione a(s) Classe(s)</option>
+						<?php foreach($this->classes as $c):?>
+						<option value="<?php echo $c['id'];?>"> <?php echo $c['nome'];?> </option>
+						<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="pagamento" class="control-label col-md-3">Pagamento R$</label>
 
 				<div class="col-md-3">
 					<input id="pagamento" class="form-control double" name="pagamento"
@@ -26,8 +46,8 @@
 				<div class="col-md-4">
 					<select id="entrega-material" class="form-control"
 						name="entregaMaterial">
-						<option value="false">Não foi Entregue</option>
-						<option value="true">Entregue</option>
+						<option value="0">Não foi Entregue</option>
+						<option value="1">Entregue</option>
 					</select>
 				</div>
 			</div>
@@ -38,8 +58,9 @@
 				<div class="col-md-4">
 					<select id="aprovado" class="form-control"
 						name="aprovado">
-						<option value="false">Reprovado</option>
-						<option value="true">Aprovado</option>
+						<option value="matriculado">Matriculado</option>
+						<option value="reprovado">Reprovado</option>
+						<option value="aprovado">Aprovado</option>
 					</select>
 
 				</div>

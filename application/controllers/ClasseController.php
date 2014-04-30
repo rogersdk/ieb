@@ -71,7 +71,7 @@ class ClasseController extends Zend_Controller_Action{
 						);
 							
 						$this->_modeloPessoaHasClasse->insert($pessoaHasClasseDados);
-					}		
+					}
 				}
 
 				$this->_helper->flashMessenger->addMessage(array('info'=>'Atualizado com Sucesso!'));

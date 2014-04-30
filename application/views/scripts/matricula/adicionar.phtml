@@ -1,0 +1,82 @@
+<div class="col-md-8">
+	<form class="form-horizontal"
+		action="<?php echo $this->url(array('controller'=>'matricula','action'=>'adicionar'));?>" method="post">
+		<fieldset>
+			<legend>Matrícula do Aluno</legend>
+			
+			<div class="form-group">
+				<label for="aluno" class="control-label col-md-3" >Aluno(s)</label>
+				<div class="col-md-6">
+					<select id="aluno" class="form-control select" name="pessoaId">
+						<option value="0" >Selecione o Aluno</option>
+						<?php foreach($this->alunos as $a):?>
+						<option value="<?php echo $a['id'];?>"> <?php echo $a['nome'];?> </option>
+						<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="data" class="control-label col-md-3">Data de Matrícula</label>
+				<div class="col-md-4">
+					<input id="data" class="form-control" name="data" type="date"
+						placeholder="dd/mm/yyyy"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="classe" class="control-label col-md-3" >Classe(s)</label>
+				<div class="col-md-6">
+					<select id="classe" class="form-control select" name="classeId">
+						<option value="0" >Selecione a(s) Classe(s)</option>
+						<?php foreach($this->classes as $c):?>
+						<option value="<?php echo $c['id'];?>"> <?php echo $c['nome'];?> </option>
+						<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="pagamento" class="control-label col-md-3">Pagamento R$</label>
+
+				<div class="col-md-3">
+					<input id="pagamento" class="form-control double" name="pagamento"
+						value="" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="entrega-material" class="control-label col-md-3">Entrega
+					de Material</label>
+				<div class="col-md-4">
+					<select id="entrega-material" class="form-control"
+						name="entregaMaterial">
+						<option value="0">Não foi Entregue</option>
+						<option value="1">Entregue</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="aprovado" class="control-label col-md-3">Situação da Matrícula</label>
+
+				<div class="col-md-4">
+					<select id="aprovado" class="form-control"
+						name="aprovado">
+						<option value="matriculado">Matriculado</option>
+						<option value="reprovado">Reprovado</option>
+						<option value="aprovado">Aprovado</option>
+					</select>
+
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-md-2 pull-right">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>
