@@ -37,7 +37,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Nome</th>
-				<th>Professor</th>
+				<th>Professor(es)</th>
 				<th>Opções</th>
 			</tr>
 		</thead>
@@ -46,7 +46,11 @@
 			<tr>
 				<td><?php echo $l['id'];?></td>
 				<td><?php echo $l['nome'];?></td>
-				<td><?php echo 'Ciclano';?></td>
+				<td>
+					<?php 
+						echo $l->professores;
+					?>
+				</td>
 				<td class="col-md-1" >
 					<a href="<?php echo $this->baseUrl('/classe/editar/id/'.$l['id']);?>" >
 						<span class="glyphicon glyphicon-pencil"></span>

@@ -20,7 +20,14 @@ class ClasseController extends Zend_Controller_Action{
 	}
 
 	public function indexAction(){
-		$this->view->lista = $this->_modelo->fetchAll()->toArray();
+		$select = $this->_modelo->select()
+			->setIntegrityCheck(false)
+			->from(array('c'=>'adm_classe'))
+			->joinLeft(array('apc'=>'adm_pessoa_has_classe'),'c.id = apc.classeId',null)
+			->joinLeft(array('p'=>'adm_pessoa'),'p.id = apc.pessoaId',array('professores'=>"GROUP_CONCAT(p.nome separator '/')"))
+			->group('c.id')
+			->order(array('c.id'));
+		$this->view->lista = $this->_modelo->fetchAll($select);
 	}
 
 	public function adicionarAction($dados = array()){
