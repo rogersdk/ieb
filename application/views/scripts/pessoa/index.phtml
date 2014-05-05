@@ -1,28 +1,4 @@
-
-
-<h3>
-	Área Administrativa |
-	<?php echo $this->tituloModelo;?>
-</h3>
-
-<div class="col-md-2 sidebar">
-	<ul class="nav nav-sidebar">
-		<li>
-			<a href="<?php echo $this->baseUrl('/'.$this->controllerName);?>">Listar Todos</a>
-		</li>
-		
-		<li>
-			<a href="<?php echo $this->baseUrl('/'.$this->controllerName.'/adicionar');?>">Adicionar Novo</a>
-		</li>
-		<!-- 
-		<li><a href="#">Relatórios</a>
-		</li>
-		 -->
-	</ul>
-</div>
-
 <?php echo $this->flashMessages();?>
-
 <div class="col-md-8 table-responsive">
 	<?php if(count($this->lista)):?>
 	<table class="table table-bordered table-hover table-striped table-responsive">
@@ -47,7 +23,7 @@
 					<a href="<?php echo $this->baseUrl($this->controllerName.'/editar/id/'.$l['id']);?>" title="Editar" >
 						<span class="glyphicon glyphicon-pencil"></span>
 					</a>
-					<a href="<?php echo $this->baseUrl($this->controllerName.'/matricular/id/'.$l['id']);?>" title="Matricular" >
+					<a href="<?php echo $this->baseUrl('matricula/nova/id/'.$l['id']);?>" title="Matricular" >
 						<span class="glyphicon glyphicon-book"></span>
 					</a>
 					<a href="<?php echo $this->baseUrl($this->controllerName.'/remover/id/'.$l['id']);?>" title="Remover" >

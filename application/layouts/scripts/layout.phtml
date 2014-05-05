@@ -49,9 +49,9 @@
 					class="glyphicon glyphicon-home"></span> Sistema Administrativo </a>
 			</div>
 			<div class="navbar-collapse collapse">
-				<?php echo $this->navigation(); ?>
-			
-			<!-- 
+			<?php echo $this->navigation(); ?>
+
+				<!-- 
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="<?php echo $this->baseUrl();?>">Início</a>
 					</li>
@@ -80,26 +80,54 @@
 		</div>
 	</div>
 
+	
 	<div class="container">
-	<?php echo $this->layout()->content; ?>
+	<?php if(Zend_Controller_Front::getInstance()->getRequest()->getControllerName()!='index'):?>
+		<h3>
+			Área Administrativa |
+			<?php echo $this->tituloModelo; ?>
+		</h3>
+
+		<div class="col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><a href="<?php echo $this->url(array('action'=>'index'));?>">Listar
+						Todos</a>
+				</li>
+				<li><a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar
+						Novo</a>
+				</li>
+				<!-- 
+		<li><a href="#">Relatórios</a>
+		</li>
+		 -->
+			</ul>
+		</div>
+	<?php endif;?>
+		<?php echo $this->layout()->content; ?>
 	</div>
-	
+
+
 	<div id="footer" class="">
-      <div class="container">
-        <p class="text-primary text-center">Todos direitos reservados &copy;.</p>
-        <p class="text-primary text-center">Igreja Evangélica Batista Zona Sul.</p>
-      </div>
-    </div>
-	
-	
+		<div class="container">
+			<p class="text-primary text-center">Todos direitos reservados &copy;.</p>
+			<p class="text-primary text-center">Igreja Evangélica Batista Zona
+				Sul.</p>
+		</div>
+	</div>
+
+
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="<?php echo $this->baseUrl();?>/public/js/libs/jquery-1.10.2.min.js"></script>
-	<script	src="<?php echo $this->baseUrl();?>/public/bootstrap/js/bootstrap.min.js"></script>
-	<script	src="<?php echo $this->baseUrl();?>/public/js/libs/jquery.validate.min.js"></script>
-	<script	src="<?php echo $this->baseUrl();?>/public/js/libs/jquery.maskedinput.min.js"></script>
-	<script	src="<?php echo $this->baseUrl();?>/public/js/main.js"></script>
+	<script
+		src="<?php echo $this->baseUrl();?>/public/js/libs/jquery-1.10.2.min.js"></script>
+	<script
+		src="<?php echo $this->baseUrl();?>/public/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="<?php echo $this->baseUrl();?>/public/js/libs/jquery.validate.min.js"></script>
+	<script
+		src="<?php echo $this->baseUrl();?>/public/js/libs/jquery.maskedinput.min.js"></script>
+	<script src="<?php echo $this->baseUrl();?>/public/js/main.js"></script>
 
 </body>
 </html>

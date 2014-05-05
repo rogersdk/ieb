@@ -1,0 +1,39 @@
+<?php echo $this->flashMessages();?>
+<div class="col-md-8 table-responsive">
+
+	<?php if(count($this->lista)):?>
+	<table class="table table-bordered table-hover table-striped table-responsive">
+		<caption>Lista</caption>
+				
+		<thead>
+			<tr>
+				<th>Aluno</th>
+				<th>Classe</th>
+				<th>Opções</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($this->lista as $l):?>
+
+			<tr>
+				
+				<td><?php echo $l['aluno']; ?></td>
+				<td><?php echo $l['classe']; ?></td>
+				<td class="col-md-1" >
+					<a href="<?php echo $this->url(array('controller'=>$this->controllerName,'action'=>'remover','pessoaId'=>$l['pessoaId'],'classeId'=>$l['classeId']));?>" title="Apagar" >
+						<span class="glyphicon glyphicon-trash"></span>
+					</a>
+				</td>
+			</tr>
+			<?php endforeach;?>
+		</tbody>
+		<tfoot>
+			
+		</tfoot>
+	</table>
+	<?php else:?>
+		<p class="text-warning" >Nenhum dado foi encontrado.</p>
+	<?php endif;?>
+	
+
+</div>
