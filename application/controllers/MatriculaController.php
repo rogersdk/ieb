@@ -50,31 +50,107 @@ class MatriculaController extends Zend_Controller_Action{
 		}
 	}
 
+
+	public function editarAction(){
+		$pessoaId = $this->getRequest()->getParam('pessoaId');
+		$classeId = $this->getRequest()->getParam('classeId');
+
+		if($pessoaId > 0 && $classeId > 0){
+			$this->view->aluno = $this->_modeloPessoa->find($pessoaId)->current();
+			$this->view->classe = $this->_modeloClasse->find($classeId)->current();
+				
+			$this->view->matricula = $this->_modelo->find($pessoaId,$classeId)->current();
+		}
+
+
+		if($this->getRequest()->isPost()){
+			$valoresFiltrados = $this->filterParamValues($this->getRequest()->getParams());
+			unset($valoresFiltrados['aluno']);
+			
+			$dateValidator = new Zend_Validate_Date();
+			if(!$dateValidator->isValid($valoresFiltrados['data'])){
+				$valoresFiltrados['data'] = $this->setData($valoresFiltrados['data']);	
+			}
+			
+			if( !empty($valoresFiltrados) ){
+				$where = $this->_modelo->getAdapter()
+					->quoteInto("pessoaId = ? AND classeId = ?",$valoresFiltrados['pessoaId'],$valoresFiltrados['classeId']);
+
+				$this->_modelo->update($valoresFiltrados,$where);
+
+
+				$this->_helper->flashMessenger->addMessage(array('success'=>'Matrícula Atualizada com Sucesso!'));
+				$this->_helper->_redirector('index');
+			}else{
+				$this->_helper->flashMessenger->addMessage(array('warning'=>'Matrícula não foi Atualizada!'));
+				$this->_helper->_redirector('index');
+			}
+		}
+	}
+
 	public function adicionarAction(){
 		$this->view->alunos = $this->_modeloPessoa->fetchAll()->toArray();
 		if($this->getRequest()->isPost()){
 			$valoresFiltrados = $this->filterParamValues($this->getRequest()->getParams());
+			$valoresFiltrados['data'] = $this->setData($valoresFiltrados['data']);
 
 			if($this->_modelo->insert($valoresFiltrados)){
 				$this->_helper->flashMessenger->addMessage(array('success'=>'Matricula efetuada com sucesso!'));
 			}else{
 				$this->_helper->flashMessenger->addMessage(array('warning'=>'Erro ao efetuar Matricula!'));
 			}
-			
-			
+
 			$this->_helper->_redirector('index');
 		}
 	}
-	
+
+	public function setData($dataNaoFormatada){
+		$dados = explode('/',$dataNaoFormatada);
+		return $dados[2].'-'.$dados[1].'-'.$dados[0];
+	}
+
+	public function getData($dataNaoFormatada){
+		$dados = explode('-',$dataNaoFormatada);
+		return $dados[2].'/'.$dados[1].'/'.$dados[0];
+	}
+
+
 	public function removerAction(){
-		$this->_helper->layout()->disableLayout(); 
+		$this->_helper->layout()->disableLayout();
 		$this->_helper->viewRenderer->setNoRender(true);
-		
+
 		$pessoaId = $this->getRequest()->getParam('pessoaId');
 		$classeId = $this->getRequest()->getParam('classeId');
-		
-		
-		
+
+		$where = $this->_modelo->getAdapter()->quoteInto('pessoaId = ? AND classeId = ?',$pessoaId,$classeId);
+
+		if($this->_modelo->delete($where)){
+			$this->_helper->flashMessenger->addMessage(array('success'=>'Matricula removida com sucesso!'));
+		}else{
+			$this->_helper->flashMessenger->addMessage(array('success'=>'Erro ao remover matricula!'));
+		}
+
+		$this->_helper->_redirector('index');
+	}
+
+	public function aprovarAction(){
+		$this->_helper->layout()->disableLayout();
+		$this->_helper->viewRenderer->setNoRender(true);
+
+		$pessoaId = (int) $this->getRequest()->getParam('pessoaId');
+		$classeId = (int) $this->getRequest()->getParam('classeId');
+
+
+		$where = $this->_modelo->getAdapter()->quoteInto('pessoaId = ? AND classeId = ?',$pessoaId,$classeId);
+
+		if($this->_modelo->update(array('aprovado'=>1), $where)){
+			$this->_helper->flashMessenger->addMessage(array('success'=>'Aluno foi aprovado sucesso!'));
+		}else{
+			$this->_helper->flashMessenger->addMessage(array('danger'=>'Aluno não foi aprovado!'));
+		}
+
+
+		$this->_helper->_redirector('index');
 	}
 
 	public function filterParamValues($data = array()){
