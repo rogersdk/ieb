@@ -119,15 +119,17 @@ class MatriculaController extends Zend_Controller_Action{
 		$this->_helper->layout()->disableLayout();
 		$this->_helper->viewRenderer->setNoRender(true);
 
-		$pessoaId = $this->getRequest()->getParam('pessoaId');
-		$classeId = $this->getRequest()->getParam('classeId');
+		$pessoaId = (int) $this->getRequest()->getParam('pessoaId');
+		$classeId = (int) $this->getRequest()->getParam('classeId');
 
 		$where = $this->_modelo->getAdapter()->quoteInto('pessoaId = ? AND classeId = ?',$pessoaId,$classeId);
+
+		
 
 		if($this->_modelo->delete($where)){
 			$this->_helper->flashMessenger->addMessage(array('success'=>'Matricula removida com sucesso!'));
 		}else{
-			$this->_helper->flashMessenger->addMessage(array('success'=>'Erro ao remover matricula!'));
+			$this->_helper->flashMessenger->addMessage(array('danger'=>'Erro ao remover matricula!'));
 		}
 
 		$this->_helper->_redirector('index');
