@@ -1,6 +1,5 @@
 <?php echo $this->flashMessages();?>
 <div class="col-md-8 table-responsive">
-
 	<?php if(count($this->lista)):?>
 	<table class="table table-bordered table-hover table-striped table-responsive">
 		<caption>Lista</caption>
@@ -23,15 +22,12 @@
 					<a href="<?php echo $this->url(array('controller'=>$this->controllerName,'action'=>'aprovar','pessoaId'=>$l['pessoaId'],'classeId'=>$l['classeId']));?>" title="Aprovar" >
 						<span class="glyphicon glyphicon-thumbs-up"></span>
 					</a>
-					/
 					<a href="<?php echo $this->url(array('controller'=>$this->controllerName,'action'=>'editar','pessoaId'=>$l['pessoaId'],'classeId'=>$l['classeId']));?>" title="Aprovar" >
 						<span class="glyphicon glyphicon-pencil"></span>
 					</a>
-					/
 					<a href="<?php echo $this->url(array('controller'=>$this->controllerName,'action'=>'remover','pessoaId'=>$l['pessoaId'],'classeId'=>$l['classeId']));?>" title="Apagar" >
 						<span class="glyphicon glyphicon-trash"></span>
 					</a>
-					
 					
 				</td>
 				

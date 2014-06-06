@@ -58,7 +58,7 @@ class MatriculaController extends Zend_Controller_Action{
 		if($pessoaId > 0 && $classeId > 0){
 			$this->view->aluno = $this->_modeloPessoa->find($pessoaId)->current();
 			$this->view->classe = $this->_modeloClasse->find($classeId)->current();
-				
+
 			$this->view->matricula = $this->_modelo->find($pessoaId,$classeId)->current();
 		}
 
@@ -66,15 +66,15 @@ class MatriculaController extends Zend_Controller_Action{
 		if($this->getRequest()->isPost()){
 			$valoresFiltrados = $this->filterParamValues($this->getRequest()->getParams());
 			unset($valoresFiltrados['aluno']);
-			
+				
 			$dateValidator = new Zend_Validate_Date();
 			if(!$dateValidator->isValid($valoresFiltrados['data'])){
-				$valoresFiltrados['data'] = $this->setData($valoresFiltrados['data']);	
+				$valoresFiltrados['data'] = $this->setData($valoresFiltrados['data']);
 			}
-			
+				
 			if( !empty($valoresFiltrados) ){
 				$where = $this->_modelo->getAdapter()
-					->quoteInto("pessoaId = ? AND classeId = ?",$valoresFiltrados['pessoaId'],$valoresFiltrados['classeId']);
+				->quoteInto("pessoaId = ? AND classeId = ?",$valoresFiltrados['pessoaId'],$valoresFiltrados['classeId']);
 
 				$this->_modelo->update($valoresFiltrados,$where);
 
@@ -122,9 +122,7 @@ class MatriculaController extends Zend_Controller_Action{
 		$pessoaId = (int) $this->getRequest()->getParam('pessoaId');
 		$classeId = (int) $this->getRequest()->getParam('classeId');
 
-		$where = $this->_modelo->getAdapter()->quoteInto('pessoaId = ? AND classeId = ?',$pessoaId,$classeId);
-
-		
+		$where = "pessoaId = $pessoaId AND classeId= $classeId";
 
 		if($this->_modelo->delete($where)){
 			$this->_helper->flashMessenger->addMessage(array('success'=>'Matricula removida com sucesso!'));
