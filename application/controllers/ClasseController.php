@@ -17,6 +17,10 @@ class ClasseController extends Zend_Controller_Action{
 		$this->view->professores = $this->_modeloPessoa->fetchAll()->toArray();
 
 		$this->initView();
+		
+		if(!Zend_Auth::getInstance()->hasIdentity()){
+			$this->_redirect('/login/logar');	
+		}
 	}
 
 	public function indexAction(){

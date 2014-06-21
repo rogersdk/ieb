@@ -15,6 +15,9 @@ class MatriculaController extends Zend_Controller_Action{
 		$this->view->classes = $this->_modeloClasse->fetchAll()->toArray();
 
 		$this->initView();
+		if(!Zend_Auth::getInstance()->hasIdentity()){
+			$this->_redirect('/login/logar');
+		}
 	}
 
 	public function indexAction(){
@@ -66,12 +69,12 @@ class MatriculaController extends Zend_Controller_Action{
 		if($this->getRequest()->isPost()){
 			$valoresFiltrados = $this->filterParamValues($this->getRequest()->getParams());
 			unset($valoresFiltrados['aluno']);
-				
+
 			$dateValidator = new Zend_Validate_Date();
 			if(!$dateValidator->isValid($valoresFiltrados['data'])){
 				$valoresFiltrados['data'] = $this->setData($valoresFiltrados['data']);
 			}
-				
+
 			if( !empty($valoresFiltrados) ){
 				$where = $this->_modelo->getAdapter()
 				->quoteInto("pessoaId = ? AND classeId = ?",$valoresFiltrados['pessoaId'],$valoresFiltrados['classeId']);

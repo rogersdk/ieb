@@ -1,25 +1,32 @@
 <?php
 
-class Bootstrap extends Zend_Application_Bootstrap_Bootstrap{
+class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
+{
 
-	protected function _initAutoload(){
+	protected function _initAutoload()
+	{
 		$autoloader = Zend_Loader_Autoloader::getInstance()->registerNamespace('Crud_');
 		return $autoloader;
 	}
 
-	protected function _initSessionNamespaces(){
+	protected function _initSessionNamespaces()
+	{
 		Zend_Session::start();
 	}
-
+	
+	protected function _initRegisterPlugins()
+	{
+	//	$this->bootstrap('FrontController')->getResource('FrontController')->registerPlugin(new MyLib_Controllers_Plugin_Auth());
+	}
+	
+	
 	protected function _initErrorDisplay(){
 		$frontController = Zend_Controller_Front::getInstance();
 		$frontController->throwExceptions(true);
 	}
 
 
-
 	protected function _initViewHelpers(){
-
 		// Nome do Arquivo
 		$filename = realpath(APPLICATION_PATH . '/configs/navigation.xml');
 		// Carregamento de Configuração

@@ -13,6 +13,10 @@ class PessoaController extends Zend_Controller_Action {
 		$this->view->actionName = $this->getRequest()->getActionName();
 
 		$this->initView();
+
+		if(!Zend_Auth::getInstance()->hasIdentity()){
+			$this->_redirect('/login/logar');
+		}
 	}
 
 	public function indexAction(){
@@ -63,7 +67,7 @@ class PessoaController extends Zend_Controller_Action {
 	public function matricularAction(){
 		$id = $this->getRequest()->getParam('id');
 		if($id > 0){
-			
+				
 		}
 	}
 
