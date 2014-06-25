@@ -9,8 +9,17 @@
 		<title>Controle das Classes</title>
 	</classe>
 	<pessoa module="default" controller="pessoa" action="index">
+		<liClass>dropdown</liClass>
 		<label>Pessoas</label>
 		<title>Controle de Usuários</title>
+		<liclass>as</liclass>
+		<pages>
+			<page1>
+				<label>asas</label>
+				<uri>asas</uri>
+				<liclass>dropdown</liclass>
+			</page1>
+		</pages>
 	</pessoa>
 	<matricula module="default" controller="matricula" action="index">
 		<label>Matrículas</label>

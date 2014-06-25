@@ -1,3 +1,16 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#myTab a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	});
+	
+});
+
+</script>
+
+
+
 <div class="col-md-8">
 	<form class="form-horizontal" action="<?php echo $this->baseUrl();?>/pessoa/adicionar" method="post" >
 		<fieldset>
@@ -76,4 +89,103 @@
 			  </div>
 		</fieldset>
 	</form>
+</div>
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="bs-example bs-example-tabs">
+	    <ul id="myTab" class="nav nav-tabs">
+	      <li class="active"><a href="#home" data-toggle="tab">Informações Pessoais</a></li>
+	      <li class=""><a href="#profile" data-toggle="tab">Informações Adicionais</a></li>
+	    </ul>
+	    <div id="myTabContent" class="tab-content">
+	      <div class="tab-pane fade active in" id="home">
+	        <fieldset>
+			<legend>Cadastro Dados Pessoais</legend>
+			<div class="form-group">
+				<label for="nome" class="control-label col-md-2" >Nome</label>
+				<div class="col-md-8">
+					<input id="nome" class="form-control" name="nome" type="text" placeholder="Nome da Pessoa" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="cpf" class="control-label col-md-2" >CPF</label>
+				<div class="col-md-3">
+					<input id="cpf" class="form-control cpf" name="cpf" type="text" placeholder="999.999.999-99" />
+				</div>
+				
+				<label for="rg" class="control-label col-md-2" >RG</label>
+				<div class="col-md-3">
+					<input id="rg" class="form-control" name="rg" type="text" placeholder="RG" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="endereco" class="control-label col-md-2" >Endereco</label>
+				<div class="col-md-8">
+					<input id="endereco" class="form-control" name="endereco" type="text" placeholder="Rua Nome da Rua" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="complemento" class="control-label col-md-2" >Complemento</label>
+				<div class="col-md-4">
+					<input id="complemento" class="form-control" name="complemento" type="text" placeholder="Bloco k 99, Apto. 101" />
+				</div>
+
+				<label for="numero" class="control-label col-md-1" >Nº</label>
+				<div class="col-md-2">
+					<input id="numero" class="form-control" name="numero" type="text" placeholder="999" />
+				</div>		
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="cep" class="control-label col-md-2" >CEP</label>
+				<div class="col-md-3">
+					<input id="cep" class="form-control cep" name="cep" type="text" placeholder="99999-999" />
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="telefoneResidencial" class="control-label col-md-2" >Tel. Residencial</label>
+				<div class="col-md-3">
+					<input id="telefoneResidencial" class="form-control telefone" name="telefoneResidencial" type="text" placeholder="(99) 9999-9999" />
+				</div>
+				
+				<label for="telefoneCelular" class="control-label col-md-2" >Tel. Celular</label>
+				<div class="col-md-3">
+					<input id="telefoneCelular" class="form-control telefone" name="telefoneCelular" type="text" placeholder="(99) 9999-9999" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="email" class="control-label col-md-2" >Email</label>
+				<div class="col-md-5">
+					<input id="email" class="form-control" name="email" type="text" placeholder="exemplo@exemplo.com" />
+				</div>
+			
+			</div>
+			
+			<div class="form-group">
+			    <div class="col-md-2 pull-right">
+			      <button type="submit" class="btn btn-primary">Salvar</button>
+			    </div>
+			  </div>
+		</fieldset>
+	      </div>
+	      <div class="tab-pane fade" id="profile">
+	        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+	      </div>
+	      <div class="tab-pane fade" id="dropdown1">
+	        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+	      </div>
+	      <div class="tab-pane fade" id="dropdown2">
+	        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </div>

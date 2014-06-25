@@ -94,23 +94,26 @@
 			Área Administrativa |
 			<?php echo $this->tituloModelo; ?>
 		</h3>
-
-		<div class="col-md-2 sidebar">
-			<ul class="nav nav-sidebar">
-				<li><a href="<?php echo $this->url(array('action'=>'index'));?>">Listar
-						Todos</a>
-				</li>
-				<li><a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar
-						Novo</a>
-				</li>
-				<!-- 
-		<li><a href="#">Relatórios</a>
-		</li>
-		 -->
-			</ul>
+		
+		<div class="row">
+			<div class="col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li><a href="<?php echo $this->url(array('action'=>'index'));?>">Listar
+							Todos</a>
+					</li>
+					<li><a href="<?php echo $this->url(array('action'=>'adicionar'));?>">Adicionar
+							Novo</a>
+					</li>
+					<!-- 
+			<li><a href="#">Relatórios</a>
+			</li>
+			 -->
+				</ul>
+			</div>
+		
+			<?php endif;?>
+				<?php echo $this->layout()->content; ?>
 		</div>
-	<?php endif;?>
-		<?php echo $this->layout()->content; ?>
 	</div>
 
 
